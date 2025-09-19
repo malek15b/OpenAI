@@ -1,5 +1,6 @@
 package com.example.chatgptbasedcookingingredients;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -18,4 +19,7 @@ import java.util.List;
  *   }
  */
 public record OpenAiRequest(String model, List<OpenAiMessage> messages) {
+    OpenAiRequest(String message) {
+        this("gpt-4o-mini", Collections.singletonList(new OpenAiMessage("user", message)));
+    }
 }
